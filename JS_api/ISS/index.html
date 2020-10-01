@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JSON - Working with Data and APIs in JavaScript / https://www.youtube.com/watch?v=uxf0--uiX0I "/>
+    <meta name="keywords" content="API, JavaScript, JSON"/>
+
+    <title>Where is the ISS?</title>
+</head>
+<body>
+    <h1> Where is the ISS?</h1>
+    <p>
+        latitud: <span id = "lat"></span> <br/>
+        longitud: <span id = "lon"></span> <br/>
+    </p>
+    <script>
+        const api_url = 'https://api.wheretheiss.at/v1/satellites/25544';
+        async function getISS(){
+            const response= await fetch(api_url);
+            const data = await response.json();
+            // console.log(data);
+
+            const { latitude,longitude } = data;
+            document.getElementById('lat').textContent = latitude;
+            document.getElementById('lon').textContent = longitude;
+        } 
+        getISS();
+            // primera forma
+            // console.log("Primera forma");
+            // console.log(data.latitude);
+            // console.log(data.longitude);
+            // Segunda forma
+            // console.log("Segunda Forma");
+            // const { latitude,longitude } = data;
+            // console.log(latitude);
+            // console.log(longitude);
+        </script>
+
+<a href="https://www.youtube.com/watch?v=uxf0--uiX0I" target="_blank" title="JSON - Working with Data and APIs in JavaScript" alt="JSON - Working with Data and APIs in JavaScript">Ejercicio realizado del canal: The Coding Train</a>
+
+</body>
+</html>
